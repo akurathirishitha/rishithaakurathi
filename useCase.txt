@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" modified="2026-09-23T18:24:35.000Z" agent="Gemini" version="21.0.0" type="device">
+  <diagram id="usecase-diagram" name="Smart IoT Water Management System">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- SYSTEM BOUNDARY -->
+        <mxCell id="sys_boundary" value="Smart Agriculture &amp; IoT Water Management System" style="shape=rect;html=1;whiteSpace=wrap;align=center;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#f8f9fa;strokeColor=#333333;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="600" height="720" as="geometry" />
+        </mxCell>
+
+        <!-- ACTORS -->
+        <!-- Farmer (Left) -->
+        <mxCell id="actor_farmer" value="Farmer / User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="120" y="240" width="50" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Sensors & NodeMCU (Left Bottom) -->
+        <mxCell id="actor_nodemcu" value="NodeMCU / Sensors&#xa;(Soil Moisture &amp; Water Level)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="120" y="520" width="50" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ThingView Mobile App (Right) -->
+        <mxCell id="actor_app" value="ThingView&#xa;Mobile App" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="980" y="380" width="50" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- USE CASES -->
+        <mxCell id="uc_threshold" value="Set Crop Moisture&#xa;Threshold" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="490" y="80" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_irrigation" value="Control Water Pump&#xa;(Irrigation)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="490" y="180" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_pump_on" value="Turn ON Pump" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="270" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_pump_off" value="Turn OFF Pump" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="270" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_rainwater" value="Control Rainwater Motor&#xa;(Drainage)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="490" y="380" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_motor_on" value="Turn ON Motor" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="470" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_motor_off" value="Turn OFF Motor" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="470" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_filter" value="Filter &amp; Store Rainwater&#xa;(Coal, Sand, Cotton)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="490" y="560" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_reuse" value="Reuse Filtered Water&#xa;(via Tap)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="320" y="660" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_mon_app" value="View Telemetry &amp;&#xa;Real-Time Alerts" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="660" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- CONNECTIONS / RELATIONSHIPS -->
+        <!-- Farmer Associations -->
+        <mxCell id="edge_f1" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor_farmer" target="uc_threshold">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_f2" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor_farmer" target="uc_reuse">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- NodeMCU Associations -->
+        <mxCell id="edge_n1" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor_nodemcu" target="uc_irrigation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_n2" style="endArrow=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor_nodemcu" target="uc_rainwater">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- App Association -->
+        <mxCell id="edge_a1" style="endArrow=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="actor_app" target="uc_mon_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- EXTEND RELATIONSHIPS WITH CONDITIONS -->
+        <!-- Pump ON Extend -->
+        <mxCell id="ext_pump_on" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;&#xa;{if Soil Moisture &amp;lt; Threshold}" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endSize=6;dashed=1;strokeWidth=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="uc_pump_on" target="uc_irrigation">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="270" as="sourcePoint" />
+            <mxPoint x="500" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Pump OFF Extend -->
+        <mxCell id="ext_pump_off" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;&#xa;{if Soil Moisture &amp;gt;= Threshold}" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endSize=6;dashed=1;strokeWidth=1;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="uc_pump_off" target="uc_irrigation">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="770" y="270" as="sourcePoint" />
+            <mxPoint x="660" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Motor ON Extend -->
+        <mxCell id="ext_motor_on" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;&#xa;{if Water Level &amp;gt; Threshold}" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endSize=6;dashed=1;strokeWidth=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="uc_motor_on" target="uc_rainwater">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="470" as="sourcePoint" />
+            <mxPoint x="500" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Motor OFF Extend -->
+        <mxCell id="ext_motor_off" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;&#xa;{if Water Level Normal}" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endSize=6;dashed=1;strokeWidth=1;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="uc_motor_off" target="uc_rainwater">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="770" y="470" as="sourcePoint" />
+            <mxPoint x="660" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- INCLUDE RELATIONSHIPS -->
+        <mxCell id="inc_filter" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endSize=6;dashed=1;strokeWidth=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="uc_rainwater" target="uc_filter">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
